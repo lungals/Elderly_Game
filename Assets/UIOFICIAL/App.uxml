@@ -1,0 +1,222 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="App.uss" />
+
+    <!-- O DataSource (AppViewModel) é atribuído ao "root" pelo AppController.
+         Todos os elementos abaixo herdam esse data source. -->
+    <ui:VisualElement name="root" class="app">
+
+        <!-- ========== 1. MENU INICIAL ========== -->
+        <ui:VisualElement name="tela-menu" class="tela tela--centro">
+            <ui:Label class="caixa-titulo">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="TituloApp" binding-mode="ToTarget" />
+                </Bindings>
+            </ui:Label>
+            <ui:Button name="btn-entrar" text="ENTRAR" class="btn" />
+            <ui:Button name="btn-criar-conta" text="CRIAR CONTA" class="btn" />
+            <ui:Button name="btn-sair-app" text="SAIR" class="btn" />
+        </ui:VisualElement>
+
+        <!-- ========== 2. CRIAR CONTA ========== -->
+        <ui:VisualElement name="tela-criar-conta" class="tela tela--centro">
+            <ui:Label text="LOGIN" class="rotulo" />
+            <ui:TextField name="campo-login" class="campo">
+                <Bindings>
+                    <ui:DataBinding property="value" data-source-path="Login" binding-mode="TwoWay" />
+                </Bindings>
+            </ui:TextField>
+
+            <ui:Label text="EMAIL" class="rotulo" />
+            <ui:TextField name="campo-email" class="campo" keyboard-type="EmailAddress">
+                <Bindings>
+                    <ui:DataBinding property="value" data-source-path="Email" binding-mode="TwoWay" />
+                </Bindings>
+            </ui:TextField>
+
+            <ui:Button name="btn-vincular-whatsapp" class="btn btn--grande">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="TextoWhatsApp" binding-mode="ToTarget" />
+                </Bindings>
+            </ui:Button>
+
+            <ui:Label name="lbl-erro-conta" class="mensagem-erro">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="MensagemErro" binding-mode="ToTarget" />
+                </Bindings>
+            </ui:Label>
+
+            <ui:Button name="btn-confirmar-conta" text="CONFIRMAR" class="btn" />
+            <ui:Button name="btn-voltar-conta" text="VOLTAR" class="btn btn--pequeno" />
+        </ui:VisualElement>
+
+        <!-- ========== 3. TELA PRINCIPAL ========== -->
+        <ui:VisualElement name="tela-principal" class="tela">
+            <ui:Button name="btn-configurar" class="icone-btn icone-btn--topo">
+                <ui:VisualElement class="icone icone-engrenagem" />
+                <ui:Label text="CONFIGURAR" class="icone-rotulo" />
+            </ui:Button>
+
+            <ui:VisualElement class="divisor" />
+
+            <ui:VisualElement name="caixa-imagem" class="caixa-grande">
+                <ui:Image name="img-principal" class="imagem-principal">
+                    <Bindings>
+                        <ui:DataBinding property="image" data-source-path="ImagemAtual" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Image>
+                <ui:Label class="texto-sobre-imagem">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="TextoSemImagem" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+                <ui:Button name="btn-tocar-audio" class="btn-audio">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="TextoAudio" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Button>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="linha linha--espaco">
+                <ui:VisualElement class="coluna">
+                    <ui:VisualElement class="icone icone-avatar" />
+                    <ui:Label class="icone-rotulo">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="Nome" binding-mode="ToTarget" />
+                        </Bindings>
+                    </ui:Label>
+                </ui:VisualElement>
+
+                <ui:Button name="btn-gostei" class="icone-btn">
+                    <ui:VisualElement name="icone-coracao" class="icone icone-coracao" />
+                    <ui:Label class="icone-rotulo">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="TextoGostei" binding-mode="ToTarget" />
+                        </Bindings>
+                    </ui:Label>
+                </ui:Button>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="divisor" />
+
+            <ui:VisualElement class="linha linha--espaco">
+                <ui:Button name="btn-abrir-camera" class="icone-btn">
+                    <ui:VisualElement class="icone icone-camera" />
+                    <ui:Label text="CÂMERA" class="icone-rotulo" />
+                </ui:Button>
+                <ui:Button name="btn-abrir-galeria" class="icone-btn">
+                    <ui:VisualElement class="icone icone-galeria" />
+                    <ui:Label text="GALERIA DE IMAGENS" class="icone-rotulo" />
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ========== 4. IMAGEM CÂMERA ========== -->
+        <ui:VisualElement name="tela-camera" class="tela tela--moldura">
+            <ui:VisualElement class="visor">
+                <ui:Image name="img-camera" class="imagem-principal">
+                    <Bindings>
+                        <ui:DataBinding property="image" data-source-path="CameraTexture" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Image>
+                <ui:Label class="texto-sobre-imagem">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="TextoCamera" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:VisualElement class="linha linha--espaco linha--rodape">
+                <ui:Button name="btn-voltar-camera" class="icone-btn">
+                    <ui:VisualElement class="icone icone-voltar" />
+                    <ui:Label text="VOLTAR" class="icone-rotulo" />
+                </ui:Button>
+                <ui:Button name="btn-fotografar" class="icone-btn">
+                    <ui:VisualElement class="icone icone-camera icone-camera--grande" />
+                    <ui:Label text="CÂMERA" class="icone-rotulo" />
+                </ui:Button>
+                <ui:Button name="btn-gravar-audio" class="icone-btn">
+                    <ui:VisualElement class="icone icone-microfone" />
+                    <ui:Label class="icone-rotulo">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="TextoGravar" binding-mode="ToTarget" />
+                        </Bindings>
+                    </ui:Label>
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ========== 5. PERFIL ========== -->
+        <ui:VisualElement name="tela-perfil" class="tela">
+            <ui:Button name="btn-voltar-perfil" class="icone-btn icone-btn--esquerda">
+                <ui:VisualElement class="icone icone-voltar" />
+                <ui:Label text="VOLTAR" class="icone-rotulo" />
+            </ui:Button>
+
+            <ui:VisualElement class="moldura">
+                <ui:VisualElement class="caixa-perfil">
+                    <ui:VisualElement class="coluna">
+                        <ui:VisualElement class="icone icone-avatar" />
+                        <ui:Label class="icone-rotulo">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="Nome" binding-mode="ToTarget" />
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="coluna coluna--cresce">
+                        <ui:Label text="SEU PERFIL" class="rotulo" />
+                        <ui:Label class="rotulo rotulo--pequeno">
+                            <Bindings>
+                                <ui:DataBinding property="text" data-source-path="Informacoes" binding-mode="ToTarget" />
+                            </Bindings>
+                        </ui:Label>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:Button name="btn-fotos-curtidas" text="FOTOS CURTIDAS" class="btn btn--com-icone" />
+                <ui:Button name="btn-adicionar-pessoas" text="ADICIONAR PESSOAS (WHATSAPP, FACEBOOK)" class="btn" />
+                <ui:Button name="btn-sair-conta" text="SAIR" class="btn" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ========== 6. FOTOS CURTIDAS ========== -->
+        <ui:VisualElement name="tela-fotos-curtidas" class="tela tela--moldura">
+            <ui:Button name="btn-voltar-curtidas" class="icone-btn icone-btn--esquerda">
+                <ui:VisualElement class="icone icone-voltar" />
+                <ui:Label text="VOLTAR" class="icone-rotulo" />
+            </ui:Button>
+            <ui:Label text="FOTOS CURTIDAS" class="titulo-tela" />
+            <ui:ScrollView class="rolagem">
+                <ui:VisualElement name="grade-curtidas" class="grade" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+
+        <!-- ========== 7. SUAS FOTOS (GALERIA) ========== -->
+        <ui:VisualElement name="tela-galeria" class="tela tela--moldura">
+            <ui:VisualElement class="linha linha--espaco">
+                <ui:Button name="btn-voltar-galeria" class="icone-btn">
+                    <ui:VisualElement class="icone icone-voltar" />
+                    <ui:Label text="VOLTAR" class="icone-rotulo" />
+                </ui:Button>
+                <ui:Button name="btn-configurar-galeria" class="icone-btn">
+                    <ui:VisualElement class="icone icone-engrenagem" />
+                    <ui:Label text="CONFIGURAR" class="icone-rotulo" />
+                </ui:Button>
+            </ui:VisualElement>
+            <ui:Label text="SUAS FOTOS" class="titulo-tela" />
+            <ui:ScrollView class="rolagem">
+                <ui:VisualElement name="grade-minhas-fotos" class="grade" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+
+        <!-- ========== POPUP: ADICIONAR PESSOAS ========== -->
+        <ui:VisualElement name="popup-compartilhar" class="popup">
+            <ui:VisualElement class="popup-caixa">
+                <ui:Label text="CONVIDAR AMIGOS" class="rotulo" />
+                <ui:Button name="btn-convidar-whatsapp" text="WHATSAPP" class="btn" />
+                <ui:Button name="btn-convidar-facebook" text="FACEBOOK" class="btn" />
+                <ui:Button name="btn-convidar-outros" text="OUTROS (COPIAR LINK)" class="btn" />
+                <ui:Button name="btn-fechar-popup" text="FECHAR" class="btn btn--pequeno" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+    </ui:VisualElement>
+</ui:UXML>

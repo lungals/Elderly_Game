@@ -1,0 +1,217 @@
+/* Paleta extraída dos seus PNGs */
+:root {
+    --marrom-escuro: #42281A;
+    --marrom-medio:  #AD6D43;
+    --marrom-claro:  #C79D6D;
+    --marrom-caixa:  #A67F56;
+    --branco:        #FFFFFF;
+}
+
+/* Fonte: importe a fonte dos seus PNGs (ex.: .ttf) e descomente:
+Label, Button, TextField {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/SuaFonte SDF.asset");
+}
+*/
+
+Label, Button, TextField {
+    color: var(--marrom-escuro);
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
+
+.app {
+    flex-grow: 1;
+    background-color: var(--marrom-medio);
+    /* Para as listras: background-image: url("project://database/Assets/UI/Sprites/fundo.png"); */
+}
+
+.tela {
+    display: none;                /* controlado pelo AppController */
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    padding: 40px 30px;
+}
+.tela--centro { justify-content: center; }
+.tela--moldura {
+    margin: 20px;
+    border-width: 6px;
+    border-color: var(--branco);
+    border-radius: 60px;
+    background-color: var(--marrom-medio);
+}
+
+/* ---------- Botões ---------- */
+.btn {
+    height: 150px;
+    margin: 20px 0;
+    font-size: 64px;
+    background-color: var(--marrom-medio);
+    border-width: 8px;
+    border-color: var(--marrom-escuro);
+    border-radius: 50px;
+}
+.btn:hover { background-color: var(--marrom-claro); }
+.btn:active { scale: 0.97 0.97; }
+.btn--grande { height: 260px; }
+.btn--pequeno { height: 100px; font-size: 44px; }
+.btn--com-icone { padding-left: 200px; }
+
+.caixa-titulo {
+    height: 420px;
+    margin-bottom: 60px;
+    font-size: 100px;
+    background-color: var(--marrom-caixa);
+    border-width: 8px;
+    border-color: var(--marrom-escuro);
+    border-radius: 100px;
+}
+
+/* ---------- Texto / campos ---------- */
+.rotulo { font-size: 56px; margin: 10px 0; }
+.rotulo--pequeno { font-size: 44px; }
+.titulo-tela { font-size: 70px; margin: 10px 0 30px 0; }
+.mensagem-erro { font-size: 36px; color: #7a1f1f; min-height: 50px; }
+
+.campo { margin: 10px 0 30px 0; }
+.campo > .unity-base-text-field__input {
+    height: 130px;
+    font-size: 54px;
+    background-color: var(--marrom-claro);
+    border-width: 6px;
+    border-color: var(--marrom-escuro);
+    border-radius: 40px;
+    color: var(--marrom-escuro);
+}
+
+/* ---------- Layout ---------- */
+.linha { flex-direction: row; align-items: center; }
+.linha--espaco { justify-content: space-between; }
+.linha--rodape { margin-top: 30px; align-items: flex-end; }
+.coluna { align-items: center; }
+.coluna--cresce { flex-grow: 1; }
+.divisor {
+    height: 40px;
+    margin: 20px -30px;
+    background-color: var(--marrom-claro);
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-color: var(--marrom-medio);
+}
+
+.moldura {
+    flex-grow: 1;
+    margin-top: 20px;
+    padding: 20px;
+    border-width: 6px;
+    border-color: var(--branco);
+    border-radius: 60px;
+}
+.caixa-perfil {
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-width: 8px;
+    border-color: var(--marrom-escuro);
+    border-radius: 60px;
+}
+
+/* ---------- Ícones (troque por seus sprites: background-image) ---------- */
+.icone-btn {
+    background-color: rgba(0,0,0,0);
+    border-width: 0;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.icone-btn--topo { align-self: center; }
+.icone-btn--esquerda { align-self: flex-start; }
+.icone-rotulo { font-size: 44px; }
+
+.icone {
+    width: 200px; height: 200px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: var(--marrom-caixa);
+    border-radius: 40px;
+    border-width: 6px;
+    border-color: var(--marrom-escuro);
+}
+.icone-avatar { border-radius: 100px; background-color: var(--marrom-claro); width: 160px; height: 160px; }
+.icone-coracao { width: 130px; height: 120px; }
+.icone-coracao.curtido { background-color: #C0392B; }
+.icone-camera--grande { width: 340px; height: 240px; }
+/* .icone-camera { background-image: url("project://database/Assets/UI/Sprites/camera.png"); } */
+/* .icone-galeria, .icone-voltar, .icone-engrenagem, .icone-microfone ... idem */
+
+/* ---------- Imagem principal e visor ---------- */
+.caixa-grande {
+    height: 700px;
+    margin: 20px 0;
+    background-color: var(--marrom-caixa);
+    border-width: 8px;
+    border-color: var(--marrom-escuro);
+    border-radius: 100px;
+    overflow: hidden;
+    justify-content: flex-end;
+}
+.imagem-principal {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    -unity-background-scale-mode: scale-to-fit;
+}
+.texto-sobre-imagem {
+    position: absolute;
+    left: 0; right: 0; top: 40%;
+    font-size: 80px;
+}
+.btn-audio {
+    height: 130px;
+    margin: 0 30px 30px 30px;
+    font-size: 64px;
+    background-color: rgba(166,127,86,0.85);
+    border-width: 0;
+    border-radius: 40px;
+}
+.visor {
+    flex-grow: 1;
+    margin: 20px 40px 0 40px;
+    background-color: var(--marrom-claro);
+    border-width: 4px;
+    border-color: var(--branco);
+    overflow: hidden;
+}
+
+/* ---------- Grades 3x3 ---------- */
+.rolagem { flex-grow: 1; margin: 0 20px 20px 20px; }
+.grade {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-width: 10px;
+    border-color: var(--marrom-escuro);
+}
+.celula {
+    width: 33.33%;
+    height: 420px;
+    background-color: var(--marrom-claro);
+    -unity-background-scale-mode: scale-to-fit;
+    border-width: 6px;
+    border-color: var(--marrom-escuro);
+}
+
+/* ---------- Popup ---------- */
+.popup {
+    display: none;
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    padding: 60px;
+}
+.popup-caixa {
+    background-color: var(--marrom-medio);
+    border-width: 8px;
+    border-color: var(--branco);
+    border-radius: 60px;
+    padding: 40px;
+}
