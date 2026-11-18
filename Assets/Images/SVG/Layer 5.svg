@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1920">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #c69c6d;
+        stroke-miterlimit: 10;
+        stroke-width: 400px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #c69c6d;
+      }
+
+      .cls-3 {
+        fill: url(#New_Pattern);
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+
+      .cls-5 {
+        fill: #42210b;
+      }
+
+      .cls-6 {
+        fill: #ad6b40;
+      }
+    </style>
+    <pattern id="New_Pattern" data-name="New Pattern" x="0" y="0" width="1120" height="1100" patternUnits="userSpaceOnUse" viewBox="0 0 1120 1100">
+      <g>
+        <rect class="cls-4" width="1120" height="1100"/>
+        <line class="cls-1" x1="1143.65" y1="2282.92" x2="2266.69" y2="1179.78"/>
+        <line class="cls-1" x1="23.65" y1="2282.92" x2="1146.69" y2="1179.78"/>
+        <line class="cls-1" x1="-1096.35" y1="2282.92" x2="26.69" y2="1179.78"/>
+        <line class="cls-1" x1="1143.65" y1="1182.92" x2="2266.69" y2="79.78"/>
+        <g>
+          <line class="cls-1" x1="23.65" y1="1182.92" x2="1146.69" y2="79.78"/>
+          <line class="cls-2" x1="23.65" y1="1182.92" x2="1146.69" y2="79.78"/>
+        </g>
+        <g>
+          <line class="cls-1" x1="-1096.35" y1="1182.92" x2="26.69" y2="79.78"/>
+          <line class="cls-2" x1="-1096.35" y1="1182.92" x2="26.69" y2="79.78"/>
+        </g>
+        <line class="cls-1" x1="1143.65" y1="82.92" x2="2266.69" y2="-1020.22"/>
+        <g>
+          <line class="cls-1" x1="23.65" y1="82.92" x2="1146.69" y2="-1020.22"/>
+          <line class="cls-2" x1="23.65" y1="82.92" x2="1146.69" y2="-1020.22"/>
+        </g>
+        <g>
+          <line class="cls-1" x1="-1096.35" y1="82.92" x2="26.69" y2="-1020.22"/>
+          <line class="cls-2" x1="-1096.35" y1="82.92" x2="26.69" y2="-1020.22"/>
+        </g>
+      </g>
+    </pattern>
+  </defs>
+  <g id="Layer_7" data-name="Layer 7">
+    <g>
+      <rect class="cls-6" x="2" y="2" width="1076" height="1916"/>
+      <path class="cls-5" d="M1076,4v1912H4V4h1072ZM1080,0H0v1920h1080V0h0Z"/>
+    </g>
+    <g>
+      <rect class="cls-3" x="2" y="2" width="1076" height="1916"/>
+      <path class="cls-5" d="M1076,4v1912H4V4h1072ZM1080,0H0v1920h1080V0h0Z"/>
+    </g>
+  </g>
+</svg>

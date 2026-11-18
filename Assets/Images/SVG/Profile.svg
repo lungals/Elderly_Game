@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 304.78 304.78">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #c69c6d;
+        stroke: #41200b;
+        stroke-width: 10px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: 25px;
+      }
+
+      .cls-3 {
+        fill: #41200b;
+      }
+    </style>
+  </defs>
+  <g id="Camada_12" data-name="Camada 12">
+    <g id="perfil">
+      <circle id="contorno-branco" class="cls-2" cx="152.39" cy="152.39" r="139.89"/>
+      <circle id="fundo" class="cls-1" cx="152.39" cy="152.39" r="139.89"/>
+      <ellipse id="cabeca" class="cls-3" cx="152.39" cy="99.54" rx="46.63" ry="49.74"/>
+      <ellipse id="ombros" class="cls-3" cx="152.39" cy="214.57" rx="83.93" ry="43.52"/>
+    </g>
+  </g>
+</svg>

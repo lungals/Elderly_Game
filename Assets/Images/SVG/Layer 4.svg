@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.64 274.92">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-7 {
+        stroke: #42210b;
+      }
+
+      .cls-1, .cls-2, .cls-5 {
+        stroke-width: 10px;
+      }
+
+      .cls-1, .cls-4 {
+        fill: #8c6239;
+      }
+
+      .cls-2 {
+        fill: #a67c52;
+      }
+
+      .cls-3 {
+        fill: #754c24;
+      }
+
+      .cls-3, .cls-4, .cls-7 {
+        stroke-width: 5px;
+      }
+
+      .cls-5, .cls-6 {
+        fill: #fff;
+        stroke: #fff;
+      }
+
+      .cls-6 {
+        stroke-width: 9px;
+      }
+
+      .cls-7 {
+        fill: #c69c6d;
+      }
+    </style>
+  </defs>
+  <g id="Layer_4" data-name="Layer 4">
+    <rect class="cls-6" x="39.78" y="30.23" width="221.45" height="212.56" transform="translate(316.4 19.19) rotate(102.53)"/>
+    <rect class="cls-1" x="54.23" y="35.78" width="192.56" height="201.45" transform="translate(33.19 -29.39) rotate(12.53)"/>
+    <rect class="cls-3" x="69.31" y="57.21" width="162.38" height="158.59" transform="translate(33.19 -29.39) rotate(12.53)"/>
+    <rect class="cls-5" x="10.74" y="47.93" width="216.25" height="227.73" transform="translate(280.66 42.93) rotate(90)"/>
+    <rect class="cls-2" x="15" y="63.67" width="207.73" height="196.25"/>
+    <rect class="cls-4" x="42.39" y="92.32" width="154.49" height="145.95"/>
+    <circle class="cls-7" cx="153.71" cy="122.06" r="19.31"/>
+    <polygon class="cls-7" points="42.39 210.61 100.56 126.86 142.68 184.26 175.32 146.25 196.88 183.48 196.88 238.11 42.39 238.27 42.39 210.61"/>
+  </g>
+</svg>
