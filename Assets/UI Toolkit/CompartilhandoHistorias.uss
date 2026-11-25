@@ -105,7 +105,7 @@
     -unity-text-align: middle-left;
 }
 
-/* Plaquinha creme atrás do texto: contraste alto sobre o fundo listrado. */
+/* Placa atrás do texto */
 .plate {
     padding: 8px 28px;
     border-radius: 28px;
@@ -128,7 +128,6 @@
     transition-duration: 0.12s;
 }
 
-/* Anula hover/foco do tema padrão para não aparecer um retângulo atrás da arte. */
 .btn:hover:enabled,
 .btn:active:enabled,
 .btn:focus:enabled,

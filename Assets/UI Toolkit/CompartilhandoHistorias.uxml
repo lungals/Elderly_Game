@@ -98,7 +98,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
 
-        <!-- ============ Galeria (suas fotos) ============ -->
+        <!-- ============ Galeria ============ -->
         <ui:VisualElement name="galleryScreen" class="screen hidden">
             <ui:VisualElement class="panel panel--fill">
                 <ui:VisualElement class="header">

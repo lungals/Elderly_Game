@@ -1,19 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
     <ui:Style src="CompartilhandoHistorias.uss" />
-    <!--
-        Variante B (teste A/B) do CompartilhandoHistorias.uxml.
-        Mesmo USS, mesmas telas e opções; só muda a distribuição dos botões:
-          - "Voltar" vira um botão grande com texto, sempre no rodapé (zona do polegar).
-          - Ações com rótulo escrito em vez de só ícone, empilhadas uma por linha.
-          - Navegação da tela principal toda junta embaixo (Câmera / Galeria / Configurar).
-          - Ações rápidas primeiro (ex.: vincular com Google/WhatsApp antes do formulário).
-        Para trocar: no UIDocument, troque o Source Asset por este arquivo.
-        Os names das telas e as classes de navegação (go-tela, back, quit, like) são os mesmos, então o
-        CompartilhandoHistoriasNav funciona sem mudanças.
-    -->
     <ui:VisualElement name="chRoot" class="root">
 
-        <!-- ============ Tela inicial: título em cima, botões embaixo ============ -->
+        <!-- ============ Tela inicial ============ -->
         <ui:VisualElement name="startScreen" class="screen screen--centered">
             <ui:VisualElement class="title-card">
                 <ui:Label class="text app-title" text="Compartilhando Histórias" />
@@ -24,7 +13,7 @@
             <ui:Button class="btn btn--box start-button quit" text="Sair" />
         </ui:VisualElement>
 
-        <!-- ============ Criar conta: atalhos primeiro, formulário depois ============ -->
+        <!-- ============ Criar conta ============ -->
         <ui:VisualElement name="createAccountScreen" class="screen hidden">
             <ui:Button class="btn btn--box go--mainScreen" text="Vincular com Google" />
             <ui:Button class="btn btn--box go--mainScreen" text="Vincular com WhatsApp" />
@@ -44,7 +33,7 @@
             </ui:Button>
         </ui:VisualElement>
 
-        <!-- ============ Tela principal: toda a navegação no rodapé ============ -->
+        <!-- ============ Tela principal ============ -->
         <ui:VisualElement name="mainScreen" class="screen screen--flush hidden">
             <ui:VisualElement class="main-content">
                 <ui:VisualElement class="post-card">
@@ -57,7 +46,6 @@
                     <ui:VisualElement class="photo-frame">
                         <ui:Label class="text plate" text="Imagem" />
                     </ui:VisualElement>
-                    <!-- Ações do post lado a lado, logo abaixo da foto -->
                     <ui:VisualElement style="flex-direction: row; align-items: center; margin-top: 28px;">
                         <ui:Button class="btn btn--box" text="Tocar áudio" style="flex-grow: 1; margin-bottom: 0; margin-right: 24px;" />
                         <ui:Button class="btn btn--icon like">
@@ -84,7 +72,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
 
-        <!-- ============ Câmera: ações empilhadas com texto ============ -->
+        <!-- ============ Câmera ============ -->
         <ui:VisualElement name="cameraScreen" class="screen hidden">
             <ui:VisualElement class="panel panel--fill panel--tight">
                 <ui:Label class="text plate spaced" text="Aponte a câmera e toque em Fotografar." />
@@ -107,7 +95,7 @@
             </ui:Button>
         </ui:VisualElement>
 
-        <!-- ============ Galeria (suas fotos) ============ -->
+        <!-- ============ Galeria ============ -->
         <ui:VisualElement name="galleryScreen" class="screen hidden">
             <ui:VisualElement class="panel panel--fill">
                 <ui:Label class="text text--title" text="Suas fotos" />
@@ -158,7 +146,6 @@
                     <ui:Label class="text text--lg" text="Fotos curtidas" picking-mode="Ignore" />
                 </ui:Button>
                 <ui:Button class="btn btn--box go--addPeopleScreen" text="Adicionar pessoas&#10;(WhatsApp, Facebook)" />
-                <!-- "Sair da conta" fica longe do "Voltar" para evitar toque acidental -->
                 <ui:VisualElement style="flex-grow: 1;" />
                 <ui:Button class="btn btn--box go--startScreen" text="Sair da conta" style="margin-bottom: 0;" />
             </ui:VisualElement>
