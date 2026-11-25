@@ -29,6 +29,8 @@ public class CompartilhandoHistoriasNav : MonoBehaviour
     VisualElement wiredRoot;
     VisualElement current;
 
+    // Anexa este script sozinho a qualquer UIDocument que use o UXML,
+    // então funciona mesmo que ninguém tenha adicionado o componente na cena.
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     static void AutoAttach()
     {
