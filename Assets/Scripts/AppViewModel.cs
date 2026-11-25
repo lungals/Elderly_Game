@@ -3,10 +3,7 @@ using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-/// <summary>
-/// ViewModel usado como DataSource do UI Toolkit (Unity 6+).
-/// Cada propriedade [CreateProperty] pode ser ligada no UXML via data-source-path.
-/// </summary>
+
 public class AppViewModel : INotifyBindablePropertyChanged
 {
     public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
@@ -14,7 +11,7 @@ public class AppViewModel : INotifyBindablePropertyChanged
     void Notificar(string propriedade) =>
         propertyChanged?.Invoke(this, new BindablePropertyChangedEventArgs(propriedade));
 
-    // Atribui o campo e notifica a UI. Propriedades dependentes são notificadas junto.
+   
     bool Set<T>(ref T campo, T valor, string nome, params string[] dependentes)
     {
         if (Equals(campo, valor)) return false;
@@ -24,10 +21,10 @@ public class AppViewModel : INotifyBindablePropertyChanged
         return true;
     }
 
-    // ---------- Menu ----------
+    // Menu 
     [CreateProperty] public string TituloApp { get; } = "COMPARTILHANDO HISTÓRIAS";
 
-    // ---------- Conta ----------
+    //  Conta 
     string _login = "";
     string _email = "";
     string _nome = "NOME";
@@ -52,7 +49,7 @@ public class AppViewModel : INotifyBindablePropertyChanged
     public string Informacoes =>
         $"{(string.IsNullOrEmpty(Email) ? "sem email" : Email)}\nWhatsApp: {(WhatsAppVinculado ? "vinculado" : "não vinculado")}";
 
-    // ---------- Tela principal ----------
+    //  Tela principal 
     Texture _imagemAtual;
     bool _curtidaAtual;
     bool _tocandoAudio;
@@ -68,7 +65,7 @@ public class AppViewModel : INotifyBindablePropertyChanged
     [CreateProperty] public bool TemAudio { get => _temAudio; set => Set(ref _temAudio, value, nameof(TemAudio), nameof(TextoAudio)); }
     [CreateProperty] public string TextoAudio => !TemAudio ? "SEM ÁUDIO" : (TocandoAudio ? "■ PARAR ÁUDIO" : "▶ TOCAR ÁUDIO");
 
-    // ---------- Câmera ----------
+    //  Câmera 
     Texture _cameraTexture;
     bool _gravando;
 

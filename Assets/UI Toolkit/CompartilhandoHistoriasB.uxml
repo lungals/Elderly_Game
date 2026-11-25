@@ -1,215 +1,197 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements">
-    <ui:Style src="CompartilhandoHistorias.uss" />
-    <!--
-        Variante B (teste A/B) do CompartilhandoHistorias.uxml.
-        Mesmo USS, mesmas telas e opções; só muda a distribuição dos botões:
-          - "Voltar" vira um botão grande com texto, sempre no rodapé (zona do polegar).
-          - Ações com rótulo escrito em vez de só ícone, empilhadas uma por linha.
-          - Navegação da tela principal toda junta embaixo (Câmera / Galeria / Configurar).
-          - Ações rápidas primeiro (ex.: vincular com Google/WhatsApp antes do formulário).
-        Para trocar: no UIDocument, troque o Source Asset por este arquivo.
-        Os names das telas e as classes de navegação (go-tela, back, quit, like) são os mesmos, então o
-        CompartilhandoHistoriasNav funciona sem mudanças.
-    -->
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/CompartilhandoHistorias.uss?fileID=7433441132597879392&amp;guid=f4df2d5dfc4974d4b8e7222c5206e14d&amp;type=3#CompartilhandoHistorias"/>
     <ui:VisualElement name="chRoot" class="root">
-
-        <!-- ============ Tela inicial: título em cima, botões embaixo ============ -->
-        <ui:VisualElement name="startScreen" class="screen screen--centered">
+        <ui:VisualElement name="startScreen" class="screen screen--centered" style="display: flex;">
             <ui:VisualElement class="title-card">
-                <ui:Label class="text app-title" text="Compartilhando Histórias" />
+                <ui:Label text="Compartilhando Histórias" class="text app-title"/>
             </ui:VisualElement>
-            <ui:VisualElement style="flex-grow: 1;" />
-            <ui:Button class="btn btn--box start-button go--mainScreen" text="Entrar" />
-            <ui:Button class="btn btn--box start-button go--createAccountScreen" text="Criar conta" />
-            <ui:Button class="btn btn--box start-button quit" text="Sair" />
+            <ui:VisualElement style="flex-grow: 1;"/>
+            <ui:Button text="Entrar" class="btn btn--box start-button go--mainScreen"/>
+            <ui:Button text="Criar conta" class="btn btn--box start-button go--createAccountScreen"/>
+            <ui:Button text="Sair" class="btn btn--box start-button quit"/>
         </ui:VisualElement>
-
-        <!-- ============ Criar conta: atalhos primeiro, formulário depois ============ -->
-        <ui:VisualElement name="createAccountScreen" class="screen hidden">
-            <ui:Button class="btn btn--box go--mainScreen" text="Vincular com Google" />
-            <ui:Button class="btn btn--box go--mainScreen" text="Vincular com WhatsApp" />
-            <ui:Label class="text plate spaced center" text="ou" />
-            <ui:VisualElement class="panel">
-                <ui:Label class="text text--title" text="Criar conta" />
-                <ui:Label class="text text--left" text="Seu nome" />
-                <ui:TextField class="input" />
-                <ui:Label class="text text--left" text="Seu e-mail" />
-                <ui:TextField class="input" keyboard-type="EmailAddress" />
-                <ui:Button class="btn btn--box go--mainScreen" text="Criar minha conta" style="margin-bottom: 0;" />
+        <ui:VisualElement name="createAccountScreen" class="screen hidden" style="display: none;">
+            <ui:Button text="Vincular com Google" class="btn btn--box go--mainScreen" style="top: 52px;"/>
+            <ui:Button text="Vincular com WhatsApp" class="btn btn--box go--mainScreen" style="top: 55px;"/>
+            <ui:Label text="ou" class="text plate spaced center" style="top: 58px;"/>
+            <ui:VisualElement class="panel" style="top: 92px;">
+                <ui:Label text="Criar conta" class="text text--title"/>
+                <ui:Label text="Seu nome" class="text text--left"/>
+                <ui:TextField class="input"/>
+                <ui:Label text="Seu e-mail" class="text text--left"/>
+                <ui:TextField keyboard-type="EmailAddress" class="input"/>
+                <ui:Button text="Criar minha conta" class="btn btn--box go--mainScreen" style="margin-bottom: 0;"/>
             </ui:VisualElement>
-            <ui:VisualElement style="flex-grow: 1;" />
-            <ui:Button class="btn btn--box btn--row back" style="margin-bottom: 0;">
-                <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
-                <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
+            <ui:VisualElement style="flex-grow: 1;"/>
+            <ui:Button class="btn btn--box btn--row back" style="margin-bottom: 0; top: -96px;">
+                <ui:VisualElement picking-mode="Ignore" class="icon icon--arrow"/>
+                <ui:Label text="Voltar" picking-mode="Ignore" class="text text--lg"/>
             </ui:Button>
         </ui:VisualElement>
-
-        <!-- ============ Tela principal: toda a navegação no rodapé ============ -->
-        <ui:VisualElement name="mainScreen" class="screen screen--flush hidden">
+        <ui:VisualElement name="mainScreen" class="screen screen--flush hidden" style="display: none;">
             <ui:VisualElement class="main-content">
                 <ui:VisualElement class="post-card">
                     <ui:VisualElement class="post-top">
                         <ui:VisualElement class="author">
-                            <ui:VisualElement class="icon icon--profile" />
-                            <ui:Label class="text text--lg" text="Maria" />
+                            <ui:VisualElement class="icon icon--profile"/>
+                            <ui:Label text="Maria" class="text text--lg"/>
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement class="photo-frame">
-                        <ui:Label class="text plate" text="Imagem" />
+                        <ui:Label text="Imagem" class="text plate"/>
                     </ui:VisualElement>
-                    <!-- Ações do post lado a lado, logo abaixo da foto -->
                     <ui:VisualElement style="flex-direction: row; align-items: center; margin-top: 28px;">
-                        <ui:Button class="btn btn--box" text="Tocar áudio" style="flex-grow: 1; margin-bottom: 0; margin-right: 24px;" />
+                        <ui:Button text="Tocar áudio" class="btn btn--box" style="flex-grow: 1; margin-bottom: 0; margin-right: 24px;"/>
                         <ui:Button class="btn btn--icon like">
-                            <ui:VisualElement class="icon icon--heart" picking-mode="Ignore" />
-                            <ui:Label class="text plate icon-label" text="Gostei" picking-mode="Ignore" />
+                            <ui:VisualElement picking-mode="Ignore" class="icon icon--heart"/>
+                            <ui:Label text="Gostei" picking-mode="Ignore" class="text plate icon-label"/>
                         </ui:Button>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement class="divider" />
+            <ui:VisualElement class="divider"/>
             <ui:VisualElement class="footer">
                 <ui:Button class="btn btn--icon go--cameraScreen">
-                    <ui:VisualElement class="icon icon--camera" picking-mode="Ignore" />
-                    <ui:Label class="text plate icon-label" text="Câmera" picking-mode="Ignore" />
+                    <ui:VisualElement picking-mode="Ignore" class="icon icon--camera" style="top: -63px;"/>
+                    <ui:Label text="Câmera" picking-mode="Ignore" class="text plate icon-label" style="top: -33px;"/>
                 </ui:Button>
                 <ui:Button class="btn btn--icon go--galleryScreen">
-                    <ui:VisualElement class="icon icon--gallery" picking-mode="Ignore" />
-                    <ui:Label class="text plate icon-label" text="Galeria de imagens" picking-mode="Ignore" />
+                    <ui:VisualElement picking-mode="Ignore" class="icon icon--gallery"/>
+                    <ui:Label text="Galeria de imagens" picking-mode="Ignore" class="text plate icon-label" style="width: 345px; left: -16px;"/>
                 </ui:Button>
                 <ui:Button class="btn btn--icon go--profileScreen">
-                    <ui:VisualElement class="icon icon--gear" picking-mode="Ignore" />
-                    <ui:Label class="text plate icon-label" text="Configurar" picking-mode="Ignore" />
+                    <ui:VisualElement picking-mode="Ignore" class="icon icon--gear" style="top: -71px;"/>
+                    <ui:Label text="Configurar" picking-mode="Ignore" class="text plate icon-label" style="width: 345px; top: -33px;"/>
                 </ui:Button>
             </ui:VisualElement>
         </ui:VisualElement>
-
-        <!-- ============ Câmera: ações empilhadas com texto ============ -->
-        <ui:VisualElement name="cameraScreen" class="screen hidden">
+        <ui:VisualElement name="cameraScreen" class="screen hidden" style="display: none;">
             <ui:VisualElement class="panel panel--fill panel--tight">
-                <ui:Label class="text plate spaced" text="Aponte a câmera e toque em Fotografar." />
-                <ui:VisualElement class="photo-frame" style="margin-bottom: 28px;">
-                    <ui:Label class="text plate" text="Imagem da câmera" />
+                <ui:Label text="Aponte a câmera e toque em Fotografar." class="text plate spaced"/>
+                <ui:VisualElement class="photo-frame" style="margin-bottom: 28px; top: 13px;">
+                    <ui:Label text="Imagem da câmera" class="text plate"/>
                 </ui:VisualElement>
                 <ui:Button class="btn btn--box btn--row">
-                    <ui:VisualElement class="icon icon--camera" style="width: 150px; height: 110px;" picking-mode="Ignore" />
-                    <ui:Label class="text text--lg" text="Fotografar" picking-mode="Ignore" />
+                    <ui:VisualElement picking-mode="Ignore" class="icon icon--camera" style="width: 150px; height: 110px;"/>
+                    <ui:Label text="Fotografar" picking-mode="Ignore" class="text text--lg"/>
                 </ui:Button>
                 <ui:Button class="btn btn--box btn--row">
-                    <ui:VisualElement class="icon icon--mic" style="width: 90px; height: 110px;" picking-mode="Ignore" />
-                    <ui:Label class="text text--lg" text="Gravar áudio" picking-mode="Ignore" />
+                    <ui:VisualElement picking-mode="Ignore" class="icon icon--mic" style="width: 90px; height: 110px;"/>
+                    <ui:Label text="Gravar áudio" picking-mode="Ignore" class="text text--lg"/>
                 </ui:Button>
-                <ui:Button class="btn btn--box go--galleryScreen" text="Publicar" style="margin-bottom: 0;" />
+                <ui:Button text="Publicar" class="btn btn--box go--galleryScreen" style="margin-bottom: 0;"/>
             </ui:VisualElement>
             <ui:Button class="btn btn--box btn--row back" style="margin-top: 28px; margin-bottom: 0;">
-                <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
-                <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
+                <ui:VisualElement picking-mode="Ignore" class="icon icon--arrow"/>
+                <ui:Label text="Voltar" picking-mode="Ignore" class="text text--lg"/>
             </ui:Button>
         </ui:VisualElement>
-
-        <!-- ============ Galeria (suas fotos) ============ -->
-        <ui:VisualElement name="galleryScreen" class="screen hidden">
+        <ui:VisualElement name="galleryScreen" class="screen hidden" style="display: none;">
             <ui:VisualElement class="panel panel--fill">
-                <ui:Label class="text text--title" text="Suas fotos" />
+                <ui:Label text="Suas fotos" class="text text--title"/>
                 <ui:VisualElement class="grid">
                     <ui:VisualElement class="grid-row">
-                        <ui:VisualElement class="cell"><ui:VisualElement class="badge"><ui:VisualElement class="icon icon--mic" /></ui:VisualElement></ui:VisualElement>
-                        <ui:VisualElement class="cell"><ui:VisualElement class="badge"><ui:VisualElement class="icon icon--mic" /></ui:VisualElement></ui:VisualElement>
-                        <ui:VisualElement class="cell" />
+                        <ui:VisualElement class="cell">
+                            <ui:VisualElement class="badge">
+                                <ui:VisualElement class="icon icon--mic"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="cell">
+                            <ui:VisualElement class="badge">
+                                <ui:VisualElement class="icon icon--mic"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="cell"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="grid-row">
-                        <ui:VisualElement class="cell"><ui:VisualElement class="badge"><ui:VisualElement class="icon icon--mic" /></ui:VisualElement></ui:VisualElement>
-                        <ui:VisualElement class="cell" />
-                        <ui:VisualElement class="cell" />
+                        <ui:VisualElement class="cell">
+                            <ui:VisualElement class="badge">
+                                <ui:VisualElement class="icon icon--mic"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="cell"/>
+                        <ui:VisualElement class="cell"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="grid-row">
-                        <ui:VisualElement class="cell" />
-                        <ui:VisualElement class="cell" />
-                        <ui:VisualElement class="cell" />
+                        <ui:VisualElement class="cell"/>
+                        <ui:VisualElement class="cell"/>
+                        <ui:VisualElement class="cell"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:Button class="btn btn--box btn--row go--profileScreen" style="margin-top: 28px;">
-                <ui:VisualElement class="icon icon--gear" style="width: 110px; height: 110px;" picking-mode="Ignore" />
-                <ui:Label class="text text--lg" text="Configurar" picking-mode="Ignore" />
+                <ui:VisualElement picking-mode="Ignore" class="icon icon--gear" style="width: 110px; height: 110px;"/>
+                <ui:Label text="Configurar" picking-mode="Ignore" class="text text--lg"/>
             </ui:Button>
             <ui:Button class="btn btn--box btn--row back" style="margin-bottom: 0;">
-                <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
-                <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
+                <ui:VisualElement picking-mode="Ignore" class="icon icon--arrow"/>
+                <ui:Label text="Voltar" picking-mode="Ignore" class="text text--lg"/>
             </ui:Button>
         </ui:VisualElement>
-
-        <!-- ============ Perfil ============ -->
-        <ui:VisualElement name="profileScreen" class="screen hidden">
+        <ui:VisualElement name="profileScreen" class="screen hidden" style="display: none;">
             <ui:VisualElement class="panel panel--fill">
                 <ui:VisualElement class="profile-card">
                     <ui:VisualElement class="avatar">
-                        <ui:VisualElement class="icon icon--profile" />
-                        <ui:Label class="text" text="Nome" />
+                        <ui:VisualElement class="icon icon--profile"/>
+                        <ui:Label text="Nome" class="text"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="profile-info">
-                        <ui:Label class="text text--lg" text="Seu perfil" />
-                        <ui:Label class="text text--sm" text="maria@email.com" />
-                        <ui:Label class="text text--sm" text="12 fotos publicadas" />
+                        <ui:Label text="Seu perfil" class="text text--lg"/>
+                        <ui:Label text="maria@email.com" class="text text--sm"/>
+                        <ui:Label text="12 fotos publicadas" class="text text--sm"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:Button class="btn btn--box btn--row go--likedPhotosScreen">
-                    <ui:VisualElement class="icon icon--gallery" picking-mode="Ignore" />
-                    <ui:Label class="text text--lg" text="Fotos curtidas" picking-mode="Ignore" />
+                <ui:Button class="btn btn--box btn--row go--likedPhotosScreen" style="top: 31px;">
+                    <ui:VisualElement picking-mode="Ignore" class="icon icon--gallery"/>
+                    <ui:Label text="Fotos curtidas" picking-mode="Ignore" class="text text--lg"/>
                 </ui:Button>
-                <ui:Button class="btn btn--box go--addPeopleScreen" text="Adicionar pessoas&#10;(WhatsApp, Facebook)" />
-                <!-- "Sair da conta" fica longe do "Voltar" para evitar toque acidental -->
-                <ui:VisualElement style="flex-grow: 1;" />
-                <ui:Button class="btn btn--box go--startScreen" text="Sair da conta" style="margin-bottom: 0;" />
+                <ui:Button text="Adicionar pessoas&#10;(WhatsApp, Facebook)" class="btn btn--box go--addPeopleScreen" style="top: 67px;"/>
+                <ui:VisualElement style="flex-grow: 1;"/>
+                <ui:Button text="Sair da conta" class="btn btn--box go--startScreen" style="margin-bottom: 0;"/>
             </ui:VisualElement>
             <ui:Button class="btn btn--box btn--row back" style="margin-top: 28px; margin-bottom: 0;">
-                <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
-                <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
+                <ui:VisualElement picking-mode="Ignore" class="icon icon--arrow"/>
+                <ui:Label text="Voltar" picking-mode="Ignore" class="text text--lg"/>
             </ui:Button>
         </ui:VisualElement>
-
-        <!-- ============ Fotos curtidas ============ -->
-        <ui:VisualElement name="likedPhotosScreen" class="screen hidden">
+        <ui:VisualElement name="likedPhotosScreen" class="screen hidden" style="display: none;">
             <ui:VisualElement class="panel panel--fill">
-                <ui:Label class="text text--title" text="Fotos curtidas" />
+                <ui:Label text="Fotos curtidas" class="text text--title"/>
                 <ui:VisualElement class="grid">
                     <ui:VisualElement class="grid-row">
-                        <ui:VisualElement class="cell" />
-                        <ui:VisualElement class="cell" />
-                        <ui:VisualElement class="cell" />
+                        <ui:VisualElement class="cell"/>
+                        <ui:VisualElement class="cell"/>
+                        <ui:VisualElement class="cell"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="grid-row">
-                        <ui:VisualElement class="cell" />
-                        <ui:VisualElement class="cell" />
-                        <ui:VisualElement class="cell" />
+                        <ui:VisualElement class="cell"/>
+                        <ui:VisualElement class="cell"/>
+                        <ui:VisualElement class="cell"/>
                     </ui:VisualElement>
                     <ui:VisualElement class="grid-row">
-                        <ui:VisualElement class="cell" />
-                        <ui:VisualElement class="cell" />
-                        <ui:VisualElement class="cell" />
+                        <ui:VisualElement class="cell"/>
+                        <ui:VisualElement class="cell"/>
+                        <ui:VisualElement class="cell"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:Button class="btn btn--box btn--row back" style="margin-top: 28px; margin-bottom: 0;">
-                <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
-                <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
+                <ui:VisualElement picking-mode="Ignore" class="icon icon--arrow"/>
+                <ui:Label text="Voltar" picking-mode="Ignore" class="text text--lg"/>
             </ui:Button>
         </ui:VisualElement>
-
-        <!-- ============ Adicionar pessoas ============ -->
-        <ui:VisualElement name="addPeopleScreen" class="screen hidden">
+        <ui:VisualElement name="addPeopleScreen" class="screen hidden" style="display: none;">
             <ui:VisualElement class="panel panel--fill">
-                <ui:Label class="text text--title" text="Adicionar pessoas" />
-                <ui:Label class="text plate spaced" text="De onde você quer trazer seus contatos?" />
-                <ui:Button class="btn btn--box back" text="WhatsApp" />
-                <ui:Button class="btn btn--box back" text="Facebook" />
-                <ui:Button class="btn btn--box back" text="Contatos do celular" />
+                <ui:Label text="Adicionar pessoas" class="text text--title"/>
+                <ui:Label text="De onde você quer trazer seus contatos?" class="text plate spaced"/>
+                <ui:Button text="WhatsApp" class="btn btn--box back" style="top: 33px;"/>
+                <ui:Button text="Facebook" class="btn btn--box back" style="top: 58px;"/>
+                <ui:Button text="Contatos do celular" class="btn btn--box back" style="top: 90px;"/>
             </ui:VisualElement>
             <ui:Button class="btn btn--box btn--row back" style="margin-top: 28px; margin-bottom: 0;">
-                <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
-                <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
+                <ui:VisualElement picking-mode="Ignore" class="icon icon--arrow"/>
+                <ui:Label text="Voltar" picking-mode="Ignore" class="text text--lg"/>
             </ui:Button>
         </ui:VisualElement>
-
     </ui:VisualElement>
 </ui:UXML>
