@@ -58,8 +58,8 @@
                         <ui:Label class="text plate" text="Imagem" />
                     </ui:VisualElement>
                     <!-- Ações do post lado a lado, logo abaixo da foto -->
-                    <ui:VisualElement style="flex-direction: row; align-items: center; margin-top: 28px;">
-                        <ui:Button class="btn btn--box" text="Tocar áudio" style="flex-grow: 1; margin-bottom: 0; margin-right: 24px;" />
+                    <ui:VisualElement style="flex-direction: row; align-items: center; margin-top: 2.59%;">
+                        <ui:Button class="btn btn--box" text="Tocar áudio" style="flex-grow: 1; margin-bottom: 0; margin-right: 2.22%;" />
                         <ui:Button class="btn btn--icon like">
                             <ui:VisualElement class="icon icon--heart" picking-mode="Ignore" />
                             <ui:Label class="text plate icon-label" text="Gostei" picking-mode="Ignore" />
@@ -88,7 +88,7 @@
         <ui:VisualElement name="cameraScreen" class="screen hidden">
             <ui:VisualElement class="panel panel--fill panel--tight">
                 <ui:Label class="text plate spaced" text="Aponte a câmera e toque em Fotografar." />
-                <ui:VisualElement class="photo-frame" style="margin-bottom: 28px;">
+                <ui:VisualElement class="photo-frame" style="margin-bottom: 2.59%;">
                     <ui:Label class="text plate" text="Imagem da câmera" />
                 </ui:VisualElement>
                 <ui:Button class="btn btn--box btn--row">
@@ -101,7 +101,7 @@
                 </ui:Button>
                 <ui:Button class="btn btn--box go--galleryScreen" text="Publicar" style="margin-bottom: 0;" />
             </ui:VisualElement>
-            <ui:Button class="btn btn--box btn--row back" style="margin-top: 28px; margin-bottom: 0;">
+            <ui:Button class="btn btn--box btn--row back" style="margin-top: 2.59%; margin-bottom: 0;">
                 <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
                 <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
             </ui:Button>
@@ -129,7 +129,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:Button class="btn btn--box btn--row go--profileScreen" style="margin-top: 28px;">
+            <ui:Button class="btn btn--box btn--row go--profileScreen" style="margin-top: 2.59%;">
                 <ui:VisualElement class="icon icon--gear" style="width: 110px; height: 110px;" picking-mode="Ignore" />
                 <ui:Label class="text text--lg" text="Configurar" picking-mode="Ignore" />
             </ui:Button>
@@ -162,7 +162,7 @@
                 <ui:VisualElement style="flex-grow: 1;" />
                 <ui:Button class="btn btn--box go--startScreen" text="Sair da conta" style="margin-bottom: 0;" />
             </ui:VisualElement>
-            <ui:Button class="btn btn--box btn--row back" style="margin-top: 28px; margin-bottom: 0;">
+            <ui:Button class="btn btn--box btn--row back" style="margin-top: 2.59%; margin-bottom: 0;">
                 <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
                 <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
             </ui:Button>
@@ -190,7 +190,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:Button class="btn btn--box btn--row back" style="margin-top: 28px; margin-bottom: 0;">
+            <ui:Button class="btn btn--box btn--row back" style="margin-top: 2.59%; margin-bottom: 0;">
                 <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
                 <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
             </ui:Button>
@@ -205,7 +205,7 @@
                 <ui:Button class="btn btn--box back" text="Facebook" />
                 <ui:Button class="btn btn--box back" text="Contatos do celular" />
             </ui:VisualElement>
-            <ui:Button class="btn btn--box btn--row back" style="margin-top: 28px; margin-bottom: 0;">
+            <ui:Button class="btn btn--box btn--row back" style="margin-top: 2.59%; margin-bottom: 0;">
                 <ui:VisualElement class="icon icon--arrow" picking-mode="Ignore" />
                 <ui:Label class="text text--lg" text="Voltar" picking-mode="Ignore" />
             </ui:Button>

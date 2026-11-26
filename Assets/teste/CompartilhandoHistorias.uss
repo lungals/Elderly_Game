@@ -1,0 +1,476 @@
+:root {
+    --dark: #42210b;
+    --brown: #ad6b40;
+    --tan: #c69c6d;
+    --cream: #fff3e2;
+    --white: #ffffff;
+    --pressed: #c4c4c4;
+
+    --font-sm: 44px;
+    --font-md: 54px;
+    --font-lg: 64px;
+    --font-xl: 88px;
+}
+
+/* ---------- Estrutura ---------- */
+
+.root {
+    flex-grow: 1;
+    background-color: var(--brown);
+}
+
+.screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 3.7%;
+    background-image: url("Art/BG2.png");
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.screen--centered {
+    justify-content: center;
+    padding: 5.19% 5.93%;
+}
+
+.screen--flush {
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.panel {
+    padding: 5.19%;
+    background-image: url("Art/BG1.png");
+    -unity-slice-left: 90;
+    -unity-slice-top: 90;
+    -unity-slice-right: 90;
+    -unity-slice-bottom: 90;
+    -unity-slice-scale: 0.75px;
+}
+
+.panel--fill {
+    flex-grow: 1;
+}
+
+.panel--tight {
+    padding: 3.7%;
+}
+
+.header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.48%;
+}
+
+.spaced {
+    margin-bottom: 2.59%;
+}
+
+.center {
+    align-self: center;
+}
+
+/* ---------- Textos ---------- */
+
+.text {
+    margin: 0;
+    padding: 0;
+    color: var(--dark);
+    font-size: var(--font-md);
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
+
+.text--sm {
+    font-size: var(--font-sm);
+}
+
+.text--lg {
+    font-size: var(--font-lg);
+}
+
+.text--title {
+    margin-bottom: 2.22%;
+    font-size: var(--font-xl);
+}
+
+.text--left {
+    -unity-text-align: middle-left;
+}
+
+/* Plaquinha creme atrás do texto: contraste alto sobre o fundo listrado. */
+.plate {
+    padding: 0.74% 2.59%;
+    border-radius: 28px;
+    background-color: var(--cream);
+}
+
+/* ---------- Botões ---------- */
+
+.btn {
+    margin: 0;
+    padding: 1.48% 3.7%;
+    border-width: 0;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--dark);
+    font-size: var(--font-lg);
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    white-space: normal;
+    transition-duration: 0.12s;
+}
+
+/* Anula hover/foco do tema padrão para não aparecer um retângulo atrás da arte. */
+.btn:hover:enabled,
+.btn:active:enabled,
+.btn:focus:enabled,
+.btn:hover:active:enabled {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.btn:active {
+    scale: 0.95 0.95;
+    -unity-background-image-tint-color: var(--pressed);
+}
+
+.btn--box {
+    min-height: 170px;
+    margin-bottom: 2.59%;
+    padding: 1.85% 4.44%;
+    background-image: url("Art/Box1.png");
+    -unity-slice-left: 90;
+    -unity-slice-top: 90;
+    -unity-slice-right: 90;
+    -unity-slice-bottom: 90;
+    -unity-slice-scale: 0.75px;
+}
+
+.btn--row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn--row > .icon {
+    margin-right: 2.22%;
+}
+
+.btn--icon {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    min-height: 200px;
+    padding: 0.74%;
+}
+
+.icon-label {
+    margin-top: 1.11%;
+    padding: 0.56% 1.85%;
+    border-radius: 24px;
+}
+
+/* ---------- Ícones ---------- */
+
+.icon {
+    flex-shrink: 0;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.icon--arrow {
+    width: 130px;
+    height: 114px;
+    background-image: url("Art/Arrow.png");
+}
+
+.icon--gear {
+    width: 140px;
+    height: 140px;
+    background-image: url("Art/Gear.png");
+}
+
+.icon--camera {
+    width: 220px;
+    height: 160px;
+    background-image: url("Art/camera.png");
+}
+
+.icon--gallery {
+    width: 190px;
+    height: 185px;
+    background-image: url("Art/gallery.png");
+}
+
+.icon--mic {
+    width: 120px;
+    height: 148px;
+    background-image: url("Art/Mic.png");
+}
+
+.icon--profile {
+    width: 120px;
+    height: 120px;
+    background-image: url("Art/Profile.png");
+}
+
+.icon--heart {
+    width: 140px;
+    height: 133px;
+    background-image: url("Art/NoLike.png");
+}
+
+.liked .icon--heart {
+    background-image: url("Art/Like.png");
+}
+
+/* ---------- Campos de texto ---------- */
+
+.input {
+    margin: 0 0 2.59% 0;
+    font-size: var(--font-md);
+}
+
+.input > .unity-base-text-field__input {
+    min-height: 140px;
+    padding: 0 2.96%;
+    border-width: 6px;
+    border-radius: 36px;
+    border-color: var(--dark);
+    background-color: var(--cream);
+    color: var(--dark);
+    font-size: var(--font-md);
+    -unity-text-align: middle-left;
+    --unity-cursor-color: var(--dark);
+}
+
+.input:hover:enabled > .unity-base-text-field__input {
+    border-color: var(--dark);
+    background-color: var(--cream);
+}
+
+.input:focus:enabled > .unity-base-text-field__input {
+    border-width: 10px;
+    border-color: var(--dark);
+    background-color: var(--white);
+}
+
+.input .unity-text-element {
+    color: var(--dark);
+    font-size: var(--font-md);
+}
+
+/* ---------- Fotos ---------- */
+
+.photo-frame {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    border-width: 8px;
+    border-color: var(--white);
+    background-color: var(--tan);
+}
+
+.grid {
+    flex-grow: 1;
+    padding: 0.93%;
+    background-color: var(--dark);
+}
+
+.grid-row {
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.cell {
+    flex-grow: 1;
+    flex-basis: 0;
+    border-width: 10px;
+    border-color: var(--dark);
+    background-color: var(--tan);
+}
+
+.badge {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: 84px;
+    height: 84px;
+    justify-content: center;
+    align-items: center;
+    border-width: 4px;
+    border-radius: 42px;
+    border-color: var(--dark);
+    background-color: var(--cream);
+}
+
+.badge > .icon--mic {
+    width: 44px;
+    height: 54px;
+}
+
+/* ---------- Tela inicial ---------- */
+
+.title-card {
+    min-height: 400px;
+    margin-bottom: 6.67%;
+    padding: 5.19% 4.44%;
+    justify-content: center;
+    background-image: url("Art/Box2.png");
+    -unity-slice-left: 150;
+    -unity-slice-top: 150;
+    -unity-slice-right: 150;
+    -unity-slice-bottom: 150;
+    -unity-slice-scale: 0.6px;
+}
+
+.app-title {
+    font-size: 100px;
+}
+
+.start-button {
+    min-height: 230px;
+    margin-bottom: 4.44%;
+    font-size: 76px;
+}
+
+/* ---------- Tela principal ---------- */
+
+.main-header {
+    align-items: center;
+    padding: 1.48% 0 0.37% 0;
+}
+
+.divider {
+    flex-shrink: 0;
+    height: 64px;
+    border-left-width: 20px;
+    border-right-width: 20px;
+    border-top-width: 22px;
+    border-bottom-width: 22px;
+    border-color: var(--brown);
+    background-color: var(--tan);
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 2.96% 3.7%;
+}
+
+.post-card {
+    flex-grow: 1;
+    padding: 4.07% 4.44%;
+    background-image: url("Art/Box2.png");
+    -unity-slice-left: 150;
+    -unity-slice-top: 150;
+    -unity-slice-right: 150;
+    -unity-slice-bottom: 150;
+    -unity-slice-scale: 0.6px;
+}
+
+.post-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.11%;
+}
+
+.author {
+    flex-direction: row;
+    flex-shrink: 1;
+    align-items: center;
+}
+
+.author > .icon--profile {
+    margin-right: 2.22%;
+}
+
+.like {
+    min-height: 0;
+    padding: 0;
+}
+
+.post-card > .photo-frame {
+    margin-bottom: 2.59%;
+}
+
+.post-card > .btn--box {
+    margin-bottom: 0;
+}
+
+.footer {
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 1.11% 2.22% 2.59% 2.22%;
+}
+
+.footer > .btn--icon {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+/* ---------- Câmera ---------- */
+
+.camera-controls {
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 1.85% -0.74%;
+}
+
+.camera-controls > .btn--icon {
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+    justify-content: flex-end;
+}
+
+/* ---------- Perfil ---------- */
+
+.profile-card {
+    flex-direction: row;
+    align-items: center;
+    min-height: 380px;
+    margin-bottom: 3.7%;
+    padding: 4.44% 5.19%;
+    background-image: url("Art/Box1.png");
+    -unity-slice-left: 90;
+    -unity-slice-top: 90;
+    -unity-slice-right: 90;
+    -unity-slice-bottom: 90;
+    -unity-slice-scale: 0.75px;
+}
+
+.avatar {
+    max-width: 300px;
+    margin-right: 2.96%;
+    align-items: center;
+}
+
+.avatar > .icon--profile {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1.11%;
+}
+
+.profile-info {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.profile-info > .text {
+    margin-bottom: 1.11%;
+    -unity-text-align: middle-left;
+}
+
+.btn--row > .icon--gallery {
+    width: 130px;
+    height: 126px;
+}
