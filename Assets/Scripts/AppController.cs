@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(AudioSource))]
 public class AppController : MonoBehaviour
 {
-    
+    // ---------------- Modelo de dados salvo em disco ----------------
     [Serializable] public class Foto { public string id; public string arquivo; public string audio; public bool curtida; }
     [Serializable] public class Dados
     {
@@ -22,7 +22,7 @@ public class AppController : MonoBehaviour
 
     enum Tela { Menu, CriarConta, Principal, Camera, Perfil, FotosCurtidas, Galeria }
 
-    const string LinkApp = "https://seusite.com/compartilhando-historias"; 
+    const string LinkApp = "https://seusite.com/compartilhando-historias"; // TROQUE pelo link real do app
 
     AppViewModel vm;
     Dados dados;
@@ -40,14 +40,14 @@ public class AppController : MonoBehaviour
 
     string CaminhoDados => Path.Combine(Application.persistentDataPath, "dados.json");
 
-  
+    // =================================================================
     void OnEnable()
     {
         fonteAudio = GetComponent<AudioSource>();
         root = GetComponent<UIDocument>().rootVisualElement.Q("root");
 
         vm = new AppViewModel();
-        root.dataSource = vm;            
+        root.dataSource = vm;                // <<< binding: todos os filhos herdam este data source
 
         CarregarDados();
         vm.Login = dados.login; vm.Email = dados.email; vm.Nome = dados.nome; vm.WhatsAppVinculado = dados.whatsApp;
@@ -65,41 +65,41 @@ public class AppController : MonoBehaviour
         iconeCoracao  = root.Q("icone-coracao");
         imgCamera     = root.Q<Image>("img-camera");
 
-        //Menu
+        // ---- Menu ----
         Clique("btn-entrar",       () => Ir(Tela.Principal));
         Clique("btn-criar-conta",  () => Ir(Tela.CriarConta));
         Clique("btn-sair-app",     SairDoApp);
 
-        //Criar conta
+        // ---- Criar conta ----
         Clique("btn-vincular-whatsapp", VincularWhatsApp);
         Clique("btn-confirmar-conta",   ConfirmarConta);
         Clique("btn-voltar-conta",      () => Ir(Tela.Menu));
 
-        //Principal
+        // ---- Principal ----
         Clique("btn-configurar",     () => Ir(Tela.Perfil));
         Clique("btn-gostei",         Curtir);
         Clique("btn-tocar-audio",    AlternarAudio);
         Clique("btn-abrir-camera",   () => Ir(Tela.Camera));
         Clique("btn-abrir-galeria",  () => Ir(Tela.Galeria));
-        root.Q("img-principal").RegisterCallback<ClickEvent>(_ => ProximaImagemFeed());
+        root.Q("img-principal").RegisterCallback<ClickEvent>(_ => ProximaImagemFeed()); // toque na imagem = próxima
 
-        //Câmera
+        // ---- Câmera ----
         Clique("btn-voltar-camera", () => Ir(Tela.Principal));
         Clique("btn-fotografar",    Fotografar);
         Clique("btn-gravar-audio",  AlternarGravacao);
 
-        //Perfil
+        // ---- Perfil ----
         Clique("btn-voltar-perfil",      () => Ir(Tela.Principal));
         Clique("btn-fotos-curtidas",     () => Ir(Tela.FotosCurtidas));
         Clique("btn-adicionar-pessoas",  () => popup.style.display = DisplayStyle.Flex);
         Clique("btn-sair-conta",         SairDaConta);
 
-        //Fotos curtidas & Galeria
-        Clique("btn-voltar-curtidas",     () => Ir(Tela.Perfil));  
+        // ---- Fotos curtidas / Galeria ----
+        Clique("btn-voltar-curtidas",     () => Ir(Tela.Perfil));      // volta para o perfil
         Clique("btn-voltar-galeria",      () => Ir(Tela.Principal));
         Clique("btn-configurar-galeria",  () => Ir(Tela.Perfil));
 
-        //Popup adicionar pessoas
+        // ---- Popup adicionar pessoas ----
         Clique("btn-convidar-whatsapp", () => Application.OpenURL("https://wa.me/?text=" + UnityWebRequest.EscapeURL($"Venha compartilhar histórias comigo! {LinkApp}")));
         Clique("btn-convidar-facebook", () => Application.OpenURL("https://www.facebook.com/sharer/sharer.php?u=" + UnityWebRequest.EscapeURL(LinkApp)));
         Clique("btn-convidar-outros",   () => GUIUtility.systemCopyBuffer = LinkApp);
@@ -117,9 +117,9 @@ public class AppController : MonoBehaviour
         b.clicked += acao;
     }
 
-   
-    //NAVEGAÇÃO
-    
+    // =================================================================
+    //  NAVEGAÇÃO
+    // =================================================================
     void Ir(Tela destino)
     {
         PararAudio();
@@ -155,12 +155,13 @@ public class AppController : MonoBehaviour
         Ir(Tela.Menu);
     }
 
-    
-    //CONTA
-  
+    // =================================================================
+    //  CONTA
+    // =================================================================
     void VincularWhatsApp()
     {
-        
+        // Abre o WhatsApp. A vinculação REAL (verificar o número) exige um backend
+        // (ex.: WhatsApp Business API / Twilio Verify). Aqui só marcamos como vinculado.
         Application.OpenURL("https://wa.me/");
         vm.WhatsAppVinculado = true;
     }
@@ -180,9 +181,9 @@ public class AppController : MonoBehaviour
         Ir(Tela.Principal);
     }
 
-    
-    //TELA PRINCIPAL & FEED
-    
+    // =================================================================
+    //  TELA PRINCIPAL / FEED
+    // =================================================================
     void AtualizarFeed()
     {
         PararAudio();
@@ -211,13 +212,13 @@ public class AppController : MonoBehaviour
     {
         if (dados.fotos.Count == 0) return;
         var f = dados.fotos[indiceFeed];
-        f.curtida = !f.curtida;          
+        f.curtida = !f.curtida;          // curtir / descurtir
         SalvarDados();
         vm.CurtidaAtual = f.curtida;
         iconeCoracao?.EnableInClassList("curtido", f.curtida);
     }
 
-    //Áudio
+    // ---------------- Áudio ----------------
     void AlternarAudio()
     {
         if (!vm.TemAudio) return;
@@ -244,9 +245,9 @@ public class AppController : MonoBehaviour
         if (vm != null) vm.TocandoAudio = false;
     }
 
-
-    //CÂMERA & GRAVAÇÃO
-   
+    // =================================================================
+    //  CÂMERA E GRAVAÇÃO
+    // =================================================================
     IEnumerator IniciarCamera()
     {
         ultimaFotoSessao = null;
@@ -271,7 +272,7 @@ public class AppController : MonoBehaviour
 
     void Update()
     {
-       
+        // WebCamTexture muda a cada frame; força o redesenho e corrige a rotação.
         if (webcam != null && webcam.isPlaying && imgCamera != null && webcam.width > 16)
         {
             imgCamera.style.rotate = new Rotate(new Angle(webcam.videoRotationAngle, AngleUnit.Degree));
@@ -320,18 +321,18 @@ public class AppController : MonoBehaviour
         string arq = Path.Combine(Application.persistentDataPath, $"audio_{DateTime.Now:yyyyMMdd_HHmmss_fff}.wav");
         SalvarWav(arq, clipGravando, amostras);
 
-      
+        // O áudio vai para a última foto tirada nesta sessão; se ainda não há foto, vai para a próxima.
         if (ultimaFotoSessao != null) { ultimaFotoSessao.audio = arq; SalvarDados(); }
         else audioPendente = arq;
     }
 
-    
-    //GRADES (Galeria & Fotos curtidas)
-    
+    // =================================================================
+    //  GRADES (Galeria / Fotos curtidas)
+    // =================================================================
     void PreencherGrade(VisualElement grade, List<Foto> fotos)
     {
         grade.Clear();
-        int total = Mathf.Max(9, Mathf.CeilToInt(fotos.Count / 3f) * 3); 
+        int total = Mathf.Max(9, Mathf.CeilToInt(fotos.Count / 3f) * 3); // mínimo 3x3 como no layout
         for (int i = 0; i < total; i++)
         {
             var celula = new VisualElement();
@@ -343,14 +344,16 @@ public class AppController : MonoBehaviour
                 celula.RegisterCallback<ClickEvent>(_ =>
                 {
                     indiceFeed = dados.fotos.IndexOf(foto);
-                    Ir(Tela.Principal);         
+                    Ir(Tela.Principal);          // abrir a foto na tela principal
                 });
             }
             grade.Add(celula);
         }
     }
 
-    //UTILITÁRIOS  
+    // =================================================================
+    //  UTILITÁRIOS
+    // =================================================================
     Texture2D CarregarTextura(string caminho)
     {
         if (cacheTex.TryGetValue(caminho, out var t) && t != null) return t;
